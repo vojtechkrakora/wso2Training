@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="TatooWebserviceDefinition" targetNamespace="http://wafriv.de/tatoo_webservice/wsdl.php"
+             xmlns:tns="http://wafriv.de/tatoo_webservice/wsdl.php"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:x1="http://wafriv.de/tatoo_webservice/wsdl.php/types/"
+             xmlns="http://schemas.xmlsoap.org/wsdl/">
+    <types>
+        <xsd:schema targetNamespace="http://wafriv.de/tatoo_webservice/wsdl.php/types/"
+                    xmlns="http://wafriv.de/tatoo_webservice/wsdl.php/types/">
+        </xsd:schema>
+    </types>
+    <message name="gameUploadRequest">
+        <part name="name" type="xsd:string" />
+    </message>
+    <message name="gameUploadResponse">
+        <part name="response" type="xsd:string" />
+    </message>
+    <portType name="TatooWebservicePortType">
+        <operation name="gameUpload">
+            <input message="tns:gameUploadRequest" />
+            <output message="tns:gameUploadResponse" />
+        </operation>
+    </portType>
+    <binding name="TatooWebserviceBinding" type="tns:TatooWebservicePortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="gameUpload">
+            <soap:operation soapAction="urn:gameUpload" style="rpc" />
+            <input>
+                <soap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="urn:xmethodsTatooWebservice"
+                    use="encoded" />
+            </input>
+            <output>
+                <soap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="urn:xmethodsTatooWebservice"
+                    use="encoded" />
+            </output>
+        </operation>      
+    </binding>
+    <service name="TatooWebservice">
+        <documentation>WSDL for the tatoo webservice</documentation>
+        <port name="TatooWebservicePort" binding="tns:TatooWebserviceBinding">
+            <soap:address location="http://wafriv.de/tatoo_webservice/index.php" />
+        </port>
+    </service>
+</definitions>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="ProxyService" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </target>
+    <publishWSDL key="gov:custom/CoolProxy.wsdl" preservePolicy="true"/>
+    <parameter name="useOriginalwsdl">true</parameter>
+</proxy>
