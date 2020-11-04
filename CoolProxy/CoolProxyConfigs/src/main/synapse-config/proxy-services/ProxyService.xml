@@ -25,6 +25,7 @@
             <payloadFactory media-type="xml">
                 <format>
                     <typ:CoolMeResponseBody xmlns:typ="http://wafriv.de/tatoo_webservice/wsdl.php/types/">
+                        <typ:message>Error occurs</typ:message>
                         <typ:data>Error occurs</typ:data>
                     </typ:CoolMeResponseBody>
                 </format>
