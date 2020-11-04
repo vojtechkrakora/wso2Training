@@ -24,9 +24,9 @@
             <property name="enableMTOM" scope="axis2" type="STRING" value="false"/>
             <payloadFactory media-type="xml">
                 <format>
-                    <urn:gameUploadResponse xmlns:urn="urn:xmethodsTatooWebservice">
-                        <response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string">Error Occurred</response>
-                    </urn:gameUploadResponse>
+                    <typ:CoolMeResponseBody xmlns:typ="http://wafriv.de/tatoo_webservice/wsdl.php/types/">
+                        <data>Error occurs</data>
+                    </typ:CoolMeResponseBody>
                 </format>
                 <args/>
             </payloadFactory>
