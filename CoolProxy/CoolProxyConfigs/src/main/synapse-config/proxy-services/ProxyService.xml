@@ -2,10 +2,36 @@
 <proxy name="ProxyService" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
     <target>
         <inSequence>
-            <respond/>
+            <send>
+                <endpoint>
+                    <address format="get" optimize="mtom" uri="https://dummyimage.com/600x400/000/fff">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>1</progressionFactor>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </address>
+                </endpoint>
+            </send>
         </inSequence>
-        <outSequence/>
-        <faultSequence/>
+        <outSequence>
+            <property name="enableMTOM" scope="axis2" type="STRING" value="true"/>
+            <send/>
+        </outSequence>
+        <faultSequence>
+            <property name="enableMTOM" scope="axis2" type="STRING" value="false"/>
+            <payloadFactory media-type="xml">
+                <format>
+                    <urn:gameUploadResponse xmlns:urn="urn:xmethodsTatooWebservice">
+                        <response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string">Error Occurred</response>
+                    </urn:gameUploadResponse>
+                </format>
+                <args/>
+            </payloadFactory>
+            <respond/>
+        </faultSequence>
     </target>
     <publishWSDL key="gov:custom/CoolProxy.wsdl" preservePolicy="true"/>
     <parameter name="useOriginalwsdl">true</parameter>
