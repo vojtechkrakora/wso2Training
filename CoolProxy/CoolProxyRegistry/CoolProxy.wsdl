@@ -8,7 +8,8 @@
 			</xsd:complexType>
 			<xsd:complexType name="CoolMeResponseBody">
 				<xsd:sequence>
-					<xsd:element name="data" type="xsd:string"/>
+					<xsd:element name="message" type="xsd:string"/>
+					<xsd:element name="data" type="xsd:base64Binary"/>
 				</xsd:sequence>
 			</xsd:complexType>
 			<xsd:element name="CoolRequestBody" type="schn:CoolRequestBody" />
