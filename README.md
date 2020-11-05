@@ -6,7 +6,6 @@
 Copy the jar file in `target/` directory to `<micro-integrator-home/lib`. Restart of the server is required.
 
 ## Soap Service
-=======
 ### About
 This project creates Soap service in a WSO2. The service has exposed custom WSDL with inline schema.
 
