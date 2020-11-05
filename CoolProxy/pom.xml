@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>cz.vojtechkrakora.wso2.training</groupId>
   <artifactId>CoolProxy</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>CoolProxy</name>
   <description>CoolProxy</description>
