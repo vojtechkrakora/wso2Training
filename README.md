@@ -1,4 +1,5 @@
 # wso2Training
+*Version 1.0.2*
 ## Message Builder
 ### Build
 `mvn clean install`
