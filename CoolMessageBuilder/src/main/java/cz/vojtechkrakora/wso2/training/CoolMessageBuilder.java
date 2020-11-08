@@ -7,10 +7,7 @@ import org.apache.axiom.soap.SOAPProcessingException;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.Constants;
 import org.apache.axis2.builder.Builder;
-import org.apache.axis2.builder.MIMEBuilder;
-import org.apache.axis2.builder.MTOMBuilder;
 import org.apache.axis2.context.MessageContext;
-import org.wso2.carbon.relay.RelayConstants;
 import org.wso2.carbon.relay.StreamingOnRequestDataSource;
 
 import javax.activation.DataHandler;
