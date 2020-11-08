@@ -23,7 +23,7 @@ Add configuration to deployment.toml
 ```
 [[custom_message_formatters]]
 class = "org.wso2.carbon.relay.ExpandingMessageFormatter"
-content_type = "image/png"
+content_type = "multipart/related"
 
 [[custom_message_builders]]
 class = "cz.vojtechkrakora.wso2.training.CoolMessageBuilder"
