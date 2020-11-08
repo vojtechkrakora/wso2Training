@@ -7,6 +7,8 @@ import org.apache.axiom.soap.SOAPProcessingException;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.Constants;
 import org.apache.axis2.builder.Builder;
+import org.apache.axis2.builder.MIMEBuilder;
+import org.apache.axis2.builder.MTOMBuilder;
 import org.apache.axis2.context.MessageContext;
 import org.wso2.carbon.relay.RelayConstants;
 import org.wso2.carbon.relay.StreamingOnRequestDataSource;
@@ -31,13 +33,14 @@ public class CoolMessageBuilder implements Builder {
                 StreamingOnRequestDataSource ds = new StreamingOnRequestDataSource(inputStream);
                 DataHandler dataHandler = new DataHandler(ds);
                 messageContext.addAttachment(dataHandler.getName(), dataHandler);
-                OMNamespace ns = factory.createOMNamespace(
-                        RelayConstants.BINARY_CONTENT_QNAME.getNamespaceURI(), "ns");
-                OMElement omEle = factory.createOMElement(
-                        RelayConstants.BINARY_CONTENT_QNAME.getLocalPart(), ns);
+
+                OMNamespace nam = factory.createOMNamespace("http://namespace", "nam");
+                OMElement omEle = factory.createOMElement("DownloadResponse", nam);
+                OMElement omReturn = factory.createOMElement("return", nam);
 
                 OMText textData = factory.createOMText(dataHandler, true);
-                omEle.addChild(textData);
+                omReturn.addChild(textData);
+                omEle.addChild(omReturn);
                 env.getBody().addChild(omEle);
             }
             return env;
